@@ -11,136 +11,73 @@ type Bit = 1 | 0;
  */
 
 // could just change this to an array but then this wouldn't be useful for decimals
-type NumberToBinary<TNum extends Number> = TNum extends 0
-  ? BinaryNumber<0, 0, 0, 0, 0, 0>
-  : TNum extends 1
-  ? BinaryNumber<0, 0, 0, 0, 0, 1>
-  : TNum extends 2
-  ? BinaryNumber<0, 0, 0, 0, 1, 0>
-  : TNum extends 3
-  ? BinaryNumber<0, 0, 0, 0, 1, 1>
-  : TNum extends 4
-  ? BinaryNumber<0, 0, 0, 1, 0, 0>
-  : TNum extends 5
-  ? BinaryNumber<0, 0, 0, 1, 0, 1>
-  : TNum extends 6
-  ? BinaryNumber<0, 0, 0, 1, 1, 0>
-  : TNum extends 7
-  ? BinaryNumber<0, 0, 0, 1, 1, 1>
-  : TNum extends 8
-  ? BinaryNumber<0, 0, 1, 0, 0, 0>
-  : TNum extends 9
-  ? BinaryNumber<0, 0, 1, 0, 0, 1>
-  : TNum extends 10
-  ? BinaryNumber<0, 0, 1, 0, 1, 0>
-  : TNum extends 11
-  ? BinaryNumber<0, 0, 1, 0, 1, 1>
-  : TNum extends 12
-  ? BinaryNumber<0, 0, 1, 1, 0, 0>
-  : TNum extends 13
-  ? BinaryNumber<0, 0, 1, 1, 0, 1>
-  : TNum extends 14
-  ? BinaryNumber<0, 0, 1, 1, 1, 0>
-  : TNum extends 15
-  ? BinaryNumber<0, 0, 1, 1, 1, 1>
-  : TNum extends 16
-  ? BinaryNumber<0, 1, 0, 0, 0, 0>
-  : TNum extends 17
-  ? BinaryNumber<0, 1, 0, 0, 0, 1>
-  : TNum extends 18
-  ? BinaryNumber<0, 1, 0, 0, 1, 0>
-  : TNum extends 19
-  ? BinaryNumber<0, 1, 0, 0, 1, 1>
-  : TNum extends 20
-  ? BinaryNumber<0, 1, 0, 1, 0, 0>
-  : TNum extends 21
-  ? BinaryNumber<0, 1, 0, 1, 0, 1>
-  : TNum extends 22
-  ? BinaryNumber<0, 1, 0, 1, 1, 0>
-  : TNum extends 23
-  ? BinaryNumber<0, 1, 0, 1, 1, 1>
-  : TNum extends 24
-  ? BinaryNumber<0, 1, 1, 0, 0, 0>
-  : TNum extends 25
-  ? BinaryNumber<0, 1, 1, 0, 0, 1>
-  : TNum extends 26
-  ? BinaryNumber<0, 1, 1, 0, 1, 0>
-  : TNum extends 27
-  ? BinaryNumber<0, 1, 1, 0, 1, 1>
-  : TNum extends 28
-  ? BinaryNumber<0, 1, 1, 1, 0, 0>
-  : TNum extends 29
-  ? BinaryNumber<0, 1, 1, 1, 0, 1>
-  : TNum extends 30
-  ? BinaryNumber<0, 1, 1, 1, 1, 0>
-  : TNum extends 31
-  ? BinaryNumber<0, 1, 1, 1, 1, 1>
-  : TNum extends 32
-  ? BinaryNumber<1, 0, 0, 0, 0, 0>
-  : TNum extends 33
-  ? BinaryNumber<1, 0, 0, 0, 0, 1>
-  : TNum extends 34
-  ? BinaryNumber<1, 0, 0, 0, 1, 0>
-  : TNum extends 35
-  ? BinaryNumber<1, 0, 0, 0, 1, 1>
-  : TNum extends 36
-  ? BinaryNumber<1, 0, 0, 1, 0, 0>
-  : TNum extends 37
-  ? BinaryNumber<1, 0, 0, 1, 0, 1>
-  : TNum extends 38
-  ? BinaryNumber<1, 0, 0, 1, 1, 0>
-  : TNum extends 39
-  ? BinaryNumber<1, 0, 0, 1, 1, 1>
-  : TNum extends 40
-  ? BinaryNumber<1, 0, 1, 0, 0, 0>
-  : TNum extends 41
-  ? BinaryNumber<1, 0, 1, 0, 0, 1>
-  : TNum extends 42
-  ? BinaryNumber<1, 0, 1, 0, 1, 0>
-  : TNum extends 43
-  ? BinaryNumber<1, 0, 1, 0, 1, 1>
-  : TNum extends 44
-  ? BinaryNumber<1, 0, 1, 1, 0, 0>
-  : TNum extends 45
-  ? BinaryNumber<1, 0, 1, 1, 0, 1>
-  : TNum extends 46
-  ? BinaryNumber<1, 0, 1, 1, 1, 0>
-  : TNum extends 47
-  ? BinaryNumber<1, 0, 1, 1, 1, 1>
-  : TNum extends 48
-  ? BinaryNumber<1, 1, 0, 0, 0, 0>
-  : TNum extends 49
-  ? BinaryNumber<1, 1, 0, 0, 0, 1>
-  : TNum extends 50
-  ? BinaryNumber<1, 1, 0, 0, 1, 0>
-  : TNum extends 51
-  ? BinaryNumber<1, 1, 0, 0, 1, 1>
-  : TNum extends 52
-  ? BinaryNumber<1, 1, 0, 1, 0, 0>
-  : TNum extends 53
-  ? BinaryNumber<1, 1, 0, 1, 0, 1>
-  : TNum extends 54
-  ? BinaryNumber<1, 1, 0, 1, 1, 0>
-  : TNum extends 55
-  ? BinaryNumber<1, 1, 0, 1, 1, 1>
-  : TNum extends 56
-  ? BinaryNumber<1, 1, 1, 0, 0, 0>
-  : TNum extends 57
-  ? BinaryNumber<1, 1, 1, 0, 0, 1>
-  : TNum extends 58
-  ? BinaryNumber<1, 1, 1, 0, 1, 0>
-  : TNum extends 59
-  ? BinaryNumber<1, 1, 1, 0, 1, 1>
-  : TNum extends 60
-  ? BinaryNumber<1, 1, 1, 1, 0, 0>
-  : TNum extends 61
-  ? BinaryNumber<1, 1, 1, 1, 0, 1>
-  : TNum extends 62
-  ? BinaryNumber<1, 1, 1, 1, 1, 0>
-  : TNum extends 63
-  ? BinaryNumber<1, 1, 1, 1, 1, 0>
-  : BinaryNumber<0, 0, 0, 0, 0, 0, true>;
-
+type NumberToBinary<TNum extends number> = [
+  BinaryNumber<0, 0, 0, 0, 0, 0>,
+  BinaryNumber<0, 0, 0, 0, 0, 1>,
+  BinaryNumber<0, 0, 0, 0, 1, 0>,
+  BinaryNumber<0, 0, 0, 0, 1, 1>,
+  BinaryNumber<0, 0, 0, 1, 0, 0>,
+  BinaryNumber<0, 0, 0, 1, 0, 1>,
+  BinaryNumber<0, 0, 0, 1, 1, 0>,
+  BinaryNumber<0, 0, 0, 1, 1, 1>,
+  BinaryNumber<0, 0, 1, 0, 0, 0>,
+  BinaryNumber<0, 0, 1, 0, 0, 1>,
+  BinaryNumber<0, 0, 1, 0, 1, 0>,
+  BinaryNumber<0, 0, 1, 0, 1, 1>,
+  BinaryNumber<0, 0, 1, 1, 0, 0>,
+  BinaryNumber<0, 0, 1, 1, 0, 1>,
+  BinaryNumber<0, 0, 1, 1, 1, 0>,
+  BinaryNumber<0, 0, 1, 1, 1, 1>,
+  BinaryNumber<0, 1, 0, 0, 0, 0>,
+  BinaryNumber<0, 1, 0, 0, 0, 1>,
+  BinaryNumber<0, 1, 0, 0, 1, 0>,
+  BinaryNumber<0, 1, 0, 0, 1, 1>,
+  BinaryNumber<0, 1, 0, 1, 0, 0>,
+  BinaryNumber<0, 1, 0, 1, 0, 1>,
+  BinaryNumber<0, 1, 0, 1, 1, 0>,
+  BinaryNumber<0, 1, 0, 1, 1, 1>,
+  BinaryNumber<0, 1, 1, 0, 0, 0>,
+  BinaryNumber<0, 1, 1, 0, 0, 1>,
+  BinaryNumber<0, 1, 1, 0, 1, 0>,
+  BinaryNumber<0, 1, 1, 0, 1, 1>,
+  BinaryNumber<0, 1, 1, 1, 0, 0>,
+  BinaryNumber<0, 1, 1, 1, 0, 1>,
+  BinaryNumber<0, 1, 1, 1, 1, 0>,
+  BinaryNumber<0, 1, 1, 1, 1, 1>,
+  BinaryNumber<1, 0, 0, 0, 0, 0>,
+  BinaryNumber<1, 0, 0, 0, 0, 1>,
+  BinaryNumber<1, 0, 0, 0, 1, 0>,
+  BinaryNumber<1, 0, 0, 0, 1, 1>,
+  BinaryNumber<1, 0, 0, 1, 0, 0>,
+  BinaryNumber<1, 0, 0, 1, 0, 1>,
+  BinaryNumber<1, 0, 0, 1, 1, 0>,
+  BinaryNumber<1, 0, 0, 1, 1, 1>,
+  BinaryNumber<1, 0, 1, 0, 0, 0>,
+  BinaryNumber<1, 0, 1, 0, 0, 1>,
+  BinaryNumber<1, 0, 1, 0, 1, 0>,
+  BinaryNumber<1, 0, 1, 0, 1, 1>,
+  BinaryNumber<1, 0, 1, 1, 0, 0>,
+  BinaryNumber<1, 0, 1, 1, 0, 1>,
+  BinaryNumber<1, 0, 1, 1, 1, 0>,
+  BinaryNumber<1, 0, 1, 1, 1, 1>,
+  BinaryNumber<1, 1, 0, 0, 0, 0>,
+  BinaryNumber<1, 1, 0, 0, 0, 1>,
+  BinaryNumber<1, 1, 0, 0, 1, 0>,
+  BinaryNumber<1, 1, 0, 0, 1, 1>,
+  BinaryNumber<1, 1, 0, 1, 0, 0>,
+  BinaryNumber<1, 1, 0, 1, 0, 1>,
+  BinaryNumber<1, 1, 0, 1, 1, 0>,
+  BinaryNumber<1, 1, 0, 1, 1, 1>,
+  BinaryNumber<1, 1, 1, 0, 0, 0>,
+  BinaryNumber<1, 1, 1, 0, 0, 1>,
+  BinaryNumber<1, 1, 1, 0, 1, 0>,
+  BinaryNumber<1, 1, 1, 0, 1, 1>,
+  BinaryNumber<1, 1, 1, 1, 0, 0>,
+  BinaryNumber<1, 1, 1, 1, 0, 1>,
+  BinaryNumber<1, 1, 1, 1, 1, 0>,
+  BinaryNumber<1, 1, 1, 1, 1, 0>,
+  BinaryNumber<0, 0, 0, 0, 0, 0, true>
+][TNum];
 type BinaryToNumber<TBin extends BinaryNumber> = TBin extends BinaryNumber<
   0,
   0,
@@ -530,6 +467,8 @@ type ArrV4Het<
   T3 extends number,
   T4 extends number
 > = [T1, T2, T3, T4];
+type ReverseArrV4<TArr extends ArrV4Het<number, number, number, number>> =
+  ArrV4Het<TArr[3], TArr[2], TArr[1], TArr[0]>;
 type ArrV6Het<
   T1 extends number,
   T2 extends number,
@@ -1088,7 +1027,8 @@ declare function takesPairOrderedBigSmall<
 takesPairOrderedBigSmall([10, 1]);
 // invalid
 takesPairOrderedBigSmall([1, 10]);
-type OrderedArrVec4<
+
+type OrderedArrVec4Decreasing<
   TNumA extends number,
   TNumB extends number,
   TNumC extends number,
@@ -1101,20 +1041,25 @@ type OrderedArrVec4<
   IfEquals<ABiggerB, true> &
   IfEquals<BBiggerC, true> &
   IfEquals<CBiggerD, true>;
-
-type ValidOrderedArrV4 = OrderedArrVec4<4, 3, 2, 1>;
-type InvalidOrderedArrV4 = OrderedArrVec4<1, 2, 3, 4>;
+type OrderedArrVec4Increasing<
+  TNumA extends number,
+  TNumB extends number,
+  TNumC extends number,
+  TNumD extends number
+> = ReverseArrV4<OrderedArrVec4Decreasing<TNumA, TNumB, TNumC, TNumD>>;
+type ValidOrderedArrV4 = OrderedArrVec4Decreasing<4, 3, 2, 1>;
+type InvalidOrderedArrV4 = OrderedArrVec4Decreasing<1, 2, 3, 4>;
 
 declare function takesArrV4OrderedBigSmall<
   TNumA extends number,
   TNumB extends number,
   TNumC extends number,
   TNumD extends number
->(arr: OrderedArrVec4<TNumA, TNumB, TNumC, TNumD>): number;
+>(arr: OrderedArrVec4Decreasing<TNumA, TNumB, TNumC, TNumD>): number;
 // valid
 takesArrV4OrderedBigSmall([4, 3, 2, 1]);
-// invalid
 takesArrV4OrderedBigSmall([1, 2, 3, 4]);
+// invalid
 type Max<
   TNumberA extends number,
   TNumberB extends number
